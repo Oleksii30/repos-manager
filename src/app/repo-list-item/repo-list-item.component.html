@@ -1,0 +1,29 @@
+<div class="repo-item">
+  <div (click)="openModal(template)" class="text">
+      <p><span class="headers">Repo name:</span> {{repo.name}}</p> 
+      <p><span class="headers">Description:</span> {{repo.description}}</p>
+  </div>
+
+  <div class="star" (click)="onSelected($event)">
+    <img *ngIf ="!repo.selected" src="assets/img/star-0.png" alt="star">
+    <img *ngIf ="repo.selected" src="assets/img/star-1.png" alt="star">
+  </div>
+</div>
+
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{repo.name}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div><span class="headers">Description:</span> {{repo.description}}</div>
+        <div><span class="headers">Has issues</span>  
+            <span aria-hidden="true" *ngIf="repo.has_issues"> &#10004;</span>
+            <span aria-hidden="true" *ngIf="!repo.has_issues"> &#10008;</span>
+        </div>
+        <div><span class="headers">To github:</span> <a href="{{repo.html_url}}" target="_blank">{{repo.html_url}}</a></div>
+    </div>
+  </ng-template>

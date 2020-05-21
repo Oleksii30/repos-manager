@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "repos-manager"
+    }
+  },
+  "defaultProject": "repos-manager",
+  "cli": {
+    "analytics": "ad8df9f1-a7fa-428f-a43f-468cbb8421fb"
+  }
 }

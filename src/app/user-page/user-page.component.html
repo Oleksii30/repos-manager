@@ -1,0 +1,40 @@
+
+
+
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-4">
+            <button type="button" class="btn btn-primary" (click)="showFavourite()"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Favorite repos
+            </button>
+            <hr>
+            <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+                <div class="well well-lg card card-block card-header">
+                     <p *ngIf="storedRepos.length == 0">No repos added</p>
+                     <div *ngFor="let storedRepo of storedRepos" class="favorite-repo-item mb-1">
+                        <a href="{{storedRepo.html_url}}" 
+                           class="fovorite-links"
+                           target="_blank">{{storedRepo.html_url}}</a>
+                        <button type="button" class="btn btn-danger" (click)="removeItem(storedRepo)">Remove</button>
+                     </div>
+                     
+                </div>
+            </div>
+        </div>
+        <div class="col-6 group">
+            <div class="user-page-header">
+                <h4 class="ml-2">{{userLogin}}</h4>
+            </div>
+            <div class="list-group">    
+              <a href="#" class="list-group-item
+                                 list-group-item-action 
+                                 list-group-item-light" 
+                                 *ngFor="let repo of repos"
+                                 >
+                    <app-repo-list-item [repo]="repo" [userLogin]="userLogin"></app-repo-list-item>
+              </a>    
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>

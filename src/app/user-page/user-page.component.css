@@ -1,0 +1,21 @@
+.group{
+    margin: auto;
+}
+.user-page-header{
+    background-color: black;
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.fovorite-links{
+    font-size: small;
+}
+.btn-danger{
+    font-size: small;
+    
+}
+.favorite-repo-item{
+    display: flex;
+    justify-content: space-between;
+}

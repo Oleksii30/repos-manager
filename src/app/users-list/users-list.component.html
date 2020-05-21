@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 group">
+            <div class="alert alert-danger mt-2" role="alert" *ngIf="userNotFound">
+                User not found!
+            </div>
+            <form [formGroup]="inputForm" class="mb-1">
+               <input type="text" class="form-control"[class.not-found]="userNotFound" [formControl]="queryInput">
+            </form>         
+            <div class="list-group">    
+              <a href="#" class="list-group-item
+                                 list-group-item-action 
+                                 list-group-item-light" 
+                                 *ngFor="let user of users"
+                                 routerLink="repos/{{user.login}}">
+                  <img src="{{user.avatar_url}}" class="rounded float-left avatar">
+                  <h4>{{user.login}}</h4>
+              </a>    
+            </div>
+        </div>
+    </div>
+</div>
+ 
